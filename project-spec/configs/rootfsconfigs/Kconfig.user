@@ -1,10 +1,66 @@
 menu "user packages " 
-config gpio-demo  
-	 bool "gpio-demo"
+config bluez5  
+	 bool "bluez5"
 	 help
 	
-config peekpoke  
-	 bool "peekpoke"
+config bonniePLUSPLUS  
+	 bool "bonnie++"
+	 help
+	
+config iperf3  
+	 bool "iperf3"
+	 help
+	
+config iw  
+	 bool "iw"
+	 help
+	
+config nano  
+	 bool "nano"
+	 help
+	
+config opencl-clhpp-dev  
+	 bool "opencl-clhpp-dev"
+	 help
+	
+config opencl-headers-dev  
+	 bool "opencl-headers-dev"
+	 help
+	
+config packagegroup-petalinux-opencv  
+	 bool "packagegroup-petalinux-opencv"
+	 help
+	
+config sds-lib  
+	 bool "sds-lib"
+	 help
+	
+config ultra96-wpa  
+	 bool "ultra96-wpa"
+	 help
+	
+config wilc  
+	 bool "wilc"
+	 help
+	
+config wilc3000-fw  
+	 bool "wilc3000-fw"
+	 help
+	
+config wpa-supplicant  
+	 bool "wpa-supplicant"
+	 help
+	
+config xrt  
+	 bool "xrt"
+	 help
+	
+config xrt-dev  
+	 bool "xrt-dev"
+	 help
+	
+config zocl  
+	 bool "zocl"
 	 help
 	
 endmenu

@@ -1181,7 +1181,7 @@ CONFIG_run-postinsts=y
 #
 # bluez5 
 #
-# CONFIG_bluez5 is not set
+CONFIG_bluez5=y
 # CONFIG_bluez5-obex is not set
 # CONFIG_bluez5-dev is not set
 # CONFIG_bluez5-dbg is not set
@@ -2098,21 +2098,21 @@ CONFIG_libdfx=y
 #
 # xrt
 #
-# CONFIG_xrt is not set
-# CONFIG_xrt-dev is not set
+CONFIG_xrt=y
+CONFIG_xrt-dev=y
 # CONFIG_xrt-dbg is not set
 
 #
 # zocl
 #
-# CONFIG_zocl is not set
+CONFIG_zocl=y
 # CONFIG_zocl-dev is not set
 # CONFIG_zocl-dbg is not set
 
 #
 # opencl-clhpp
 #
-# CONFIG_opencl-clhpp-dev is not set
+CONFIG_opencl-clhpp-dev=y
 
 #
 # opencl-headers
@@ -3490,7 +3490,7 @@ CONFIG_bridge-utils=y
 #
 # wpa-supplicant 
 #
-# CONFIG_wpa-supplicant is not set
+CONFIG_wpa-supplicant=y
 # CONFIG_wpa-supplicant-passphrase is not set
 # CONFIG_wpa-supplicant-dev is not set
 # CONFIG_wpa-supplicant-dbg is not set
@@ -4079,8 +4079,15 @@ CONFIG_Init-manager-systemd=y
 #
 # user packages 
 #
-# CONFIG_gpio-demo is not set
-# CONFIG_peekpoke is not set
+CONFIG_bonniePLUSPLUS=y
+CONFIG_iperf3=y
+CONFIG_iw=y
+CONFIG_nano=y
+CONFIG_opencl-headers-dev=y
+CONFIG_sds-lib=y
+CONFIG_ultra96-wpa=y
+CONFIG_wilc=y
+CONFIG_wilc3000-fw=y
 
 #
 # PetaLinux RootFS Settings

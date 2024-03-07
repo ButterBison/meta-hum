@@ -1,5 +1,25 @@
 #Note: Mention Each package in individual line
 #These packages will get added into rootfs menu entry
 
-CONFIG_gpio-demo
-CONFIG_peekpoke
+CONFIG_xrt
+CONFIG_xrt-dev
+CONFIG_zocl
+CONFIG_opencl-clhpp-dev
+CONFIG_opencl-headers-dev
+CONFIG_packagegroup-petalinux-opencv
+
+CONFIG_bluez5
+
+CONFIG_iw
+CONFIG_wpa-supplicant
+CONFIG_wilc3000-fw
+CONFIG_wilc
+CONFIG_ultra96-wpa
+CONFIG_sds-lib
+CONFIG_wilc
+
+CONFIG_nano
+CONFIG_iperf3
+CONFIG_bonnie++
+
+

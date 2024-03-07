@@ -1,3 +1,3 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-SRC_URI:append = " file://platform-top.h file://bsp.cfg"
+UBOOTELF_NODTB_BINARY = "u-boot.elf"
