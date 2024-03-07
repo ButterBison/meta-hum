@@ -2209,7 +2209,7 @@ CONFIG_opencl-clhpp-dev=y
 #
 # connman 
 #
-# CONFIG_connman is not set
+CONFIG_connman=y
 # CONFIG_connman-tests is not set
 # CONFIG_connman-dbg is not set
 # CONFIG_connman-dev is not set
@@ -4079,13 +4079,18 @@ CONFIG_Init-manager-systemd=y
 #
 # user packages 
 #
+CONFIG_libftdi=y
 CONFIG_bonniePLUSPLUS=y
 CONFIG_iperf3=y
 CONFIG_iw=y
+CONFIG_kernel-modules=y
+CONFIG_lmsensors-sensorsdetect=y
 CONFIG_nano=y
-CONFIG_opencl-headers-dev=y
+CONFIG_packagegroup-base-extended=y
 CONFIG_sds-lib=y
+CONFIG_ultra96-misc=y
 CONFIG_ultra96-wpa=y
+CONFIG_usb-gadget-ethernet=y
 CONFIG_wilc=y
 CONFIG_wilc3000-fw=y
 
