@@ -280,11 +280,11 @@ index 5d46c5c0b614..c170b5d5aab8 100644
  	wilc->hif_func->hif_read_reg(wilc, WILC_GLB_RESET_0, &reg);
  	if (reg & BIT(10))
  		pr_err("%s: Failed to reset\n", __func__);
- diff --git a/sdio.c b/sdio.c
-index cb340466c457..549edce4ec28 100644
+diff --git a/sdio.c b/sdio.c
+index cb340466c457..4bc6732f984b 100644
 --- a/sdio.c
 +++ b/sdio.c
-@@ -454,27 +454,40 @@ static int wilc_sdio_write_reg(struct wilc *wilc, u32 addr, u32 data)
+@@ -454,27 +454,38 @@ static int wilc_sdio_write_reg(struct wilc *wilc, u32 addr, u32 data)
  				"Failed cmd 52, write reg (%08x) ...\n", addr);
  	} else {
  		struct sdio_cmd53 cmd;
@@ -304,16 +304,16 @@ index cb340466c457..549edce4ec28 100644
 +		if (ret) {
 +			kfree(pData);
  			return ret;
+-
 +		}
-
  		cmd.read_write = 1;
  		cmd.function = 0;
  		cmd.address = WILC_SDIO_FBR_DATA_REG;
  		cmd.block_mode = 0;
  		cmd.increment = 1;
-+		cmd.buffer = (u8 *)pData;
  		cmd.count = sizeof(u32);
- 		cmd.buffer = (u8 *)&data;
+-		cmd.buffer = (u8 *)&data;
++		cmd.buffer = (u8 *)pData;
  		cmd.use_global_buf = true;
  		cmd.block_size = sdio_priv->block_size;
  		ret = wilc_sdio_cmd53(wilc, &cmd);
@@ -329,19 +329,7 @@ index cb340466c457..549edce4ec28 100644
  	}
 
  	return ret;
-@@ -562,6 +575,11 @@ static int wilc_sdio_read_reg(struct wilc *wilc, u32 addr, u32 *data)
-
- 	if (addr >= 0xf0 && addr <= 0xff) { /* only vendor specific registers */
- 		struct sdio_cmd52 cmd;
-+		u32 * pData = kmalloc(sizeof(*pData), GFP_KERNEL);
-+		if (!pData) {
-+			dev_err(&func->dev, "kmalloc fail\n");
-+			return 1;
-+		}
-
- 		cmd.read_write = 0;
- 		cmd.function = 0;
-@@ -576,10 +594,17 @@ static int wilc_sdio_read_reg(struct wilc *wilc, u32 addr, u32 *data)
+@@ -576,10 +587,18 @@ static int wilc_sdio_read_reg(struct wilc *wilc, u32 addr, u32 *data)
  		*data = cmd.data;
  	} else {
  		struct sdio_cmd53 cmd;
@@ -350,17 +338,19 @@ index cb340466c457..549edce4ec28 100644
 +			dev_err(&func->dev, "kmalloc fail\n");
 +			return 1;
 +		}
++
 
  		ret = wilc_sdio_set_func0_csa_address(wilc, addr);
 -		if (ret)
+-			return ret;
 +		if (ret) {
 +			kfree(pData);
- 			return ret;
++ 			return ret;
 +		}
 
  		cmd.read_write = 0;
  		cmd.function = 0;
-@@ -587,7 +612,7 @@ static int wilc_sdio_read_reg(struct wilc *wilc, u32 addr, u32 *data)
+@@ -587,7 +606,7 @@ static int wilc_sdio_read_reg(struct wilc *wilc, u32 addr, u32 *data)
  		cmd.block_mode = 0;
  		cmd.increment = 1;
  		cmd.count = sizeof(u32);
@@ -369,7 +359,7 @@ index cb340466c457..549edce4ec28 100644
  		cmd.use_global_buf = true;
 
  		cmd.block_size = sdio_priv->block_size;
-@@ -595,8 +620,11 @@ static int wilc_sdio_read_reg(struct wilc *wilc, u32 addr, u32 *data)
+@@ -595,8 +614,11 @@ static int wilc_sdio_read_reg(struct wilc *wilc, u32 addr, u32 *data)
  		if (ret) {
  			dev_err(&func->dev,
  				"Failed cmd53, read reg (%08x)...\n", addr);
@@ -381,18 +371,19 @@ index cb340466c457..549edce4ec28 100644
  	}
 
  	le32_to_cpus(data);
-@@ -708,11 +736,12 @@ static int wilc_sdio_init(struct wilc *wilc, bool resume)
+@@ -708,12 +730,14 @@ static int wilc_sdio_init(struct wilc *wilc, bool resume)
  		func->card->host->ios.clock);
 
  	/* Patch for sdio interrupt latency issue */
--	ret = pm_runtime_get_sync(mmc_dev(func->card->host));
 +	pm_runtime_get_sync(mmc_dev(func->card->host));
-+	/*ret = pm_runtime_get_sync(mmc_dev(func->card->host));
++	/*
+ 	ret = pm_runtime_get_sync(mmc_dev(func->card->host));
  	if (ret < 0) {
  		pm_runtime_put_noidle(mmc_dev(func->card->host));
  		return ret;
--	}
-+	}*/
-
+ 	}
+-
++	*/
  	init_waitqueue_head(&sdio_intr_waitqueue);
  	sdio_priv->irq_gpio = (wilc->io_type == WILC_HIF_SDIO_GPIO_IRQ);
+
