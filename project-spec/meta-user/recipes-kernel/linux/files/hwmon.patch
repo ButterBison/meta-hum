@@ -1,0 +1,32 @@
+diff --git a/drivers/hwmon/pmbus/Kconfig b/drivers/hwmon/pmbus/Kconfig
+index 2114d7fea183..4ee3fd37088c 100644
+--- a/drivers/hwmon/pmbus/Kconfig
++++ b/drivers/hwmon/pmbus/Kconfig
+@@ -136,7 +136,7 @@ config SENSORS_IR38064
+ 	tristate "Infineon IR38064 and compatibles"
+ 	help
+ 	  If you say yes here you get hardware monitoring support for Infineon
+-	  IR38060, IR38064, IR38164 and IR38263.
++	  IR38060, IR38062, IR38063, and IR38064.
+ 
+ 	  This driver can also be built as a module. If so, the module will
+ 	  be called ir38064.
+diff --git a/drivers/hwmon/pmbus/ir38064.c b/drivers/hwmon/pmbus/ir38064.c
+index 09276e397194..6084d0717b86 100644
+--- a/drivers/hwmon/pmbus/ir38064.c
++++ b/drivers/hwmon/pmbus/ir38064.c
+@@ -53,10 +53,12 @@ static int ir38064_probe(struct i2c_client *client)
+ }
+ 
+ static const struct i2c_device_id ir38064_id[] = {
+-	{"ir38060", 0},
+-	{"ir38064", 0},
+ 	{"ir38164", 0},
+ 	{"ir38263", 0},
++	{"ir38060", 30},
++	{"ir38062", 32},
++	{"ir38063", 33},
++	{"ir38064", 34},
+ 	{}
+ };
+ 
