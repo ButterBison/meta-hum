@@ -1,0 +1,4 @@
+- petalinux-config
+- yocto layers
+- add this path
+${PROOT}/project-spec/meta-hum
