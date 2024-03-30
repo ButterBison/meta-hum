@@ -5,7 +5,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.wilc_fw;md5=89ed0ff0e98ce1c58747e9a39183cc9f"
 
 SRC_URI = "git://github.com/linux4wilc/firmware.git;protocol=git;branch=${BRANCH}"
 
-SRCREV = "7f5bc9b7ea7ddea22edd6c9b9117008f1a655d8c"
+# Tag: wilc_linux_16_1_1
+SRCREV = "ab40db5d41f4c9cd9b74a922d7f781bb07f0610b"
 BRANCH = "master"
 
 S = "${WORKDIR}/git"

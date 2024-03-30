@@ -7,11 +7,10 @@ inherit module
 
 SRC_URI = "git://github.com/linux4sam/linux-at91.git;protocol=git;branch=${BRANCH};subpath=drivers/net/wireless/microchip/wilc1000 \
            file://0001-ultra96-modifications-16.1.patch \
-		"
-SRC_URI[sha256sum] = "d363601b353d0a22ad3354e77c6fc86d7e6d994ca872f71725c52fe07fb799d3"
+           "
 
-SRCREV = "e9937336c36dbbee659b26ea05db52e03f7cd61b"
-
+# Tag: linux4microchip-2023.04
+SRCREV = "3f619ddf943b04c6f34f276a65f183a881a7c9c5"
 BRANCH = "linux-6.1-mchp"
 
 DEPENDS += "virtual/kernel"
