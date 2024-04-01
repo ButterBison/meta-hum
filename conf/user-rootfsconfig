@@ -2,7 +2,7 @@
 #These packages will get added into rootfs menu entry
 
 CONFIG_sds-lib
-CONFIG_conman
+CONFIG_connman
 CONFIG_wilc
 CONFIG_packagegroup-base-extended
 CONFIG_cmake
