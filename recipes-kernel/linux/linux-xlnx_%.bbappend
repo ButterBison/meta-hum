@@ -1,8 +1,6 @@
-FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-SRC_URI += "file://bsp.cfg \
-            file://user.cfg \
-            file://vitis_kconfig.cfg \
-            file://fix_u96v2_pwrseq_simple.patch \
-            file://hwmon.patch\
-            "
+SRC_URI:append = " file://bsp.cfg"
+KERNEL_FEATURES:append = " bsp.cfg"
+SRC_URI += "file://user_2024-04-01-15-15-00.cfg"
+

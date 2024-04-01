@@ -5,7 +5,6 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-only;md5=801f80980d171d
 
 inherit module
 
-COMPATIBLE_MACHINE = "u96v2-sbc"
 
 SRC_URI = "git://github.com/linux4sam/linux-at91.git;protocol=git;branch=${BRANCH};subpath=drivers/net/wireless/microchip/wilc1000 \
            file://0001-ultra96-modifications-15.5.patch \

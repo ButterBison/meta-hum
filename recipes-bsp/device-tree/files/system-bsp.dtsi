@@ -105,7 +105,7 @@
 &axi_intc_0 {
    compatible = "xlnx,xps-intc-1.00.a";
    interrupt-parent = <&gic>;
-   interrupts = <0 95 1>;
+   interrupts = <0 95 1>; 
 };
 &amba_pl {
    zyxclmm_drm {
